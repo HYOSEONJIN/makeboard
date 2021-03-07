@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class WriteService {
-    //글쓰기와 관련된 서비스
+    //글등록 서비스
 
     private final Logger logger = LoggerFactory.getLogger(WriteService.class);
 
