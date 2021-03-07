@@ -17,34 +17,31 @@ var LIST = {
     baseUrl = window.location;
     table = $('#postList').DataTable({
       columns: [
-        {data: 'event_time' , title: '측정시간', orderable : true},
-        {data: 'user_id' , title: 'user_id',visible : false},
-        {data: 'user_name' , title: '이름', orderable : true},
-        //{data: 'reserved' , title: 'reserved', orderable : true},
-        {data: 'temperature' , title: '온도', orderable : true},
-        {data: 'indexKey' , title: 'indexKey', visible : false}
+        {data: 'postidx' , title: '글번호', orderable : true, visible= false},
+        {data: 'postWriter' , title: '글쓴이',orderable : true},
+        {data: 'postTitle' , title: '제목', orderable : true},
+        {data: 'postDate' , title: '날짜', orderable : true}
       ],
       scrollX : false,
       columnDefs: [
         { targets: 0, "width": "20%", className: 'dt-center'},
         { targets: 1, "width": "20%", className: 'dt-center'},
         { targets: 2, "width": "20%", className: 'dt-center'},
-        { targets: 3,
-            "width": "20%",
-            className: 'dt-center',
-            "render" : function(data, type){
-              if(data < 1){
-                //data = '<div value="0">!온도체크실패!</div>';
-                data = '<div style="display:none">'+0+'</div>'+'<div>'+'온도체크실패'+'</div>';
-              }else if(data > 37.5){
-                data = '<div style="color: #ff0202", "font-weight: bold">'+data+'</div>'; 
-              }
-              return data;
-            }
+        // { targets: 3,
+        //     "width": "20%",
+        //     className: 'dt-center',
+        //     "render" : function(data, type){
+        //       if(data < 1){
+        //         //data = '<div value="0">!온도체크실패!</div>';
+        //         data = '<div style="display:none">'+0+'</div>'+'<div>'+'온도체크실패'+'</div>';
+        //       }else if(data > 37.5){
+        //         data = '<div style="color: #ff0202", "font-weight: bold">'+data+'</div>'; 
+        //       }
+        //       return data;
+        //     }
             
-        },
-        { targets: 4, "width": "20%", className: 'dt-center'}
-        //{ targets: 5, "width": "20%", className: 'dt-center'}
+        // },
+        { targets: 3, "width": "20%", className: 'dt-center'}
       ],
       order: [[ 0, 'desc' ]],
       select: {
