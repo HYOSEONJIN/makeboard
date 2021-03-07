@@ -2,10 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hyoseon.board.main.dao.BoardInterfaceDao">
 
+
+	<!-- 글등록하기 -->
 	<insert id="post"
     parameterType="com.hyoseon.board.main.vo.Board" useGeneratedKeys="true"
 		keyProperty="postidx">
-
     INSERT INTO post
 
 		(postWriter, postPassword, postTitle, postText, postFileName)

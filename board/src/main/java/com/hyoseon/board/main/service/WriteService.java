@@ -62,9 +62,7 @@ public class WriteService {
         // 파일이 있다면 파일 저장하기
         if (photoChk) {
             try {
-                board
-                    .getPostFile()
-                    .transferTo(newFile);
+                board.getPostFile().transferTo(newFile);
             } catch (Exception e) {
                 e.printStackTrace();
                 logger.error(e.getMessage());
