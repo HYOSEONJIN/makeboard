@@ -14,4 +14,12 @@
 		(#{postWriter}, #{postPassword}, #{postTitle}, #{postText}, #{postFileName})
 
 	</insert>
+
+
+	<!-- 모든 OOTD 글 리스트 불러오기 -->
+	<select id="getAllList"
+		resultType="com.hyoseon.board.main.vo.Board">
+		select * from post order by postDate desc;
+	</select>
+
 </mapper>

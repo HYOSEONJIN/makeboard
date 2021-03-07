@@ -2,7 +2,6 @@ package com.hyoseon.board.main.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.fasterxml.jackson.databind.deser.std.StringArrayDeserializer;
 import com.hyoseon.board.main.service.WriteService;
 import com.hyoseon.board.main.vo.Board;
 
@@ -42,7 +41,6 @@ public class WriteController {
         model.addAttribute("result", result);
 		
         
-;
         return "index";
     }
 
