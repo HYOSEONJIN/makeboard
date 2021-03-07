@@ -12,35 +12,29 @@
 
     <body>
 
-        <form>
+        <form id="writeForm" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td>글쓴이</td>
                     <td>
-                        <input type="Text" class="postWriter" id="postWriter"></td>
+                        <input type="Text" class="postWriter" id="postWriter" name="postWriter"></td>
                     <td>비밀번호</td>
                     <td>
-                        <input type="password" class="postPassword" id="postPassword"></td>
+                        <input type="password" class="postPassword" id="postPassword" name="postPassword"></td>
                 </tr>
                 <tr>
                     <td>제목</td>
-                    <td colspan="3">
-                        <input
-                            type="Text"
-                            class="postTitle"
-                            id-"postTitle"="id-"
-                            postTitle""="postTitle"
-                            ""></td>
+                    <td colspan="3"><input type="Text" class="postTitle" id="postTitle" name="postTitle"></td>
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <textarea class="postText"></textarea>
+                        <textarea class="postText" id="postText" name="postText"></textarea>
                     </textarea>
                 </td>
             </tr>
             <tr>
                 <td colspan="4">
-                    <input type="file"></td>
+                    <input type="file" id="postFile" name="postFile"></td>
             </tr>
         </td>
         <tr>
