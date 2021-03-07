@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hyoseon.board.dao.BoardInterfaceDao">
+<mapper namespace="com.hyoseon.board.main.dao.BoardInterfaceDao">
 
-	<insert id="post">
+	<insert id="post"
+    parameterType="com.hyoseon.board.main.vo.Board" useGeneratedKeys="true"
+		keyProperty="postidx">
+
+    INSERT INTO post
+
+		(postWriter, postPassword, postTitle, postText, postFileName)
+		VALUES
+		(#{postWriter}, #{postPassword}, #{postTitle}, #{postText}, #{postFileName})
+
 	</insert>
 </mapper>

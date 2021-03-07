@@ -11,6 +11,8 @@ import lombok.Setter;
 @Setter
 public class Board {
 
+
+    int postidx; // 글번호
     String postWriter; //글쓴이
     String postPassword; //비밀번호
     String postTitle; //글제목

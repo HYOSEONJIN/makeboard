@@ -17,14 +17,14 @@
                 <tr>
                     <td>글쓴이</td>
                     <td>
-                        <input type="Text" class="postWriter" id="postWriter" name="postWriter"></td>
+                        <input type="Text" class="postWriter" id="postWriter" name="postWriter" required></td>
                     <td>비밀번호</td>
                     <td>
-                        <input type="password" class="postPassword" id="postPassword" name="postPassword"></td>
+                        <input type="password" class="postPassword" id="postPassword" name="postPassword" required ></td>
                 </tr>
                 <tr>
                     <td>제목</td>
-                    <td colspan="3"><input type="Text" class="postTitle" id="postTitle" name="postTitle"></td>
+                    <td colspan="3"><input type="Text" class="postTitle" id="postTitle" name="postTitle" required></td>
                 </tr>
                 <tr>
                     <td colspan="4">
