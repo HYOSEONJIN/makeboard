@@ -1,0 +1,14 @@
+
+
+.postTitle {
+    width: 98%;
+}
+
+.postText{
+    width: 99%;
+    height: 300px;
+}
+
+.cancel{
+    float: right;
+}
