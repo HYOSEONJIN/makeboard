@@ -1,11 +1,9 @@
-window.onload = function(){
-  LIST.fn_getAuthLog();
-}
+
 
 
 var LIST = {
 	fn_init : function(){
-    //LIST.fn_getAuthLog();
+    LIST.fn_getAuthLog();
     //LIST.fn_reload();
 
 

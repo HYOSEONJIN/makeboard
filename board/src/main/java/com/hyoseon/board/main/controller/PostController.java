@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class PostController {
 
-    // 글 READ, UPDATE, DELETE
+    // 글 READ, UPDATE
 
 
     @Autowired
@@ -34,5 +34,8 @@ public class PostController {
         
         return "post/view";
     }
+
+
+    
     
 }

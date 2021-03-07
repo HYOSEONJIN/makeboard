@@ -65,7 +65,7 @@
         </tr>
 
     </table>
-    <button>수정</button>
+    <button onclick="location.href='/post/update'">수정</button>
     <button>삭제</button>
 
 

@@ -8,7 +8,11 @@
     <c:if test="${result eq 0}">
         alert('알수없는 에러발생');
         location.href="/";
-
+    </c:if>
+    
+    <c:if test="${result eq 1}">
+        alert('등록완료');
+        location.href="/";
     </c:if>
     
     <c:if test="${result eq 2}">

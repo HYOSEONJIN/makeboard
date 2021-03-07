@@ -43,12 +43,11 @@ public class WriteService {
         String fileTypeChk = board.getPostFile().getOriginalFilename();
         String[] arr = fileTypeChk.split("\\.");
         String Type = arr[arr.length-1].toString().toUpperCase();
-        logger.info("파일확장자"+arr[arr.length-1].toString());
-
+        logger.info("파일확장자"+Type);
 
 
         // 확장자가 사진이 아닐경우 >>>>>> 3
-        if(Type!= "JPG" || Type!="PNG" || Type!="JPEG" || Type!="GIF"){
+        if(Type.equals("JPG") && Type.equals("JPEG") && Type.equals("PNG") && Type.equals("GIF")){
 
             result = 3;            
             return result;
