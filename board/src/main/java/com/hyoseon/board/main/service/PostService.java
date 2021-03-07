@@ -22,6 +22,7 @@ public class PostService {
 
     @Autowired private SqlSessionTemplate template;
 
+    // 게시물 읽기
     public Board readPost(int postidx) {
 
         Board board = null;
@@ -42,7 +43,10 @@ public class PostService {
     String saveDirPath = null;
 
 
+    // 게시물 수정
     public int updatePost(Board board, HttpServletRequest request) {
+
+
         int result = 0;
         boolean photoChk = true;
 
@@ -157,4 +161,55 @@ public class PostService {
         return result;
     }
 
+    
+
+    // 게시물 삭제
+
+    public int deletePost(int postidx, int postPassword,  HttpServletRequest request){
+        int result = 0;
+
+        
+        dao = template.getMapper(BoardInterfaceDao.class);
+        // 삭제하기 전에 파일명 받아오기 & 비밀번호 확인하기
+        int Chk = dao.passChk(postidx, postPassword);
+
+        if(Chk==0){
+            // 비밀번호가 틀리면  >>>>>>>>> 2
+            result = 2;
+            
+        }else if(Chk==1){
+            // 파일이름 받아오기
+            String fileName = dao.getFileName(postidx, postPassword);
+            // 글삭제하기
+            result = dao.deletePost(postidx, postPassword);
+
+
+            //글이 삭제됐고, 파일을 첨부했었다면 삭제해준다.
+            if(result==1 && fileName!=null){
+                String uploadPath = "/fileupload";
+			    String DirPath = request.getSession().getServletContext().getRealPath(uploadPath);
+                System.out.println(DirPath);
+                System.out.println(fileName);
+                File file = new File(DirPath, fileName);
+                if (file.exists()) {
+				    if (file.delete()) {
+					    System.out.println("기존 파일 삭제 성공");
+				    } else {
+					    System.out.println("기존 파일 삭제 실패");
+				    }
+			    } else {
+				    System.out.println("파일이 존재하지 않습니다.");
+			    }
+
+            }
+        }
+
+
+        
+        return result;
+
+        
+    }
+
+    
 }

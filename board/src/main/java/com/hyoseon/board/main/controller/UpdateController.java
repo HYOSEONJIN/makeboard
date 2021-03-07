@@ -42,7 +42,7 @@ public class UpdateController {
         Model model
     ){
 
-        //System.out.println(board);
+        System.out.println(board);
         int result = postService.updatePost(board, request);
         model.addAttribute("result", result);
 

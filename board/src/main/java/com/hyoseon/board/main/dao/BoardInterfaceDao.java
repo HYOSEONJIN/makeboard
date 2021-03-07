@@ -24,4 +24,13 @@ public interface BoardInterfaceDao {
 
     // 글 수정
     int updatePost(Board board);
+
+    // 비밀번호 확인하기
+    int passChk(int postidx, int postPassword);
+
+    // 파일이름 받아오기
+    String getFileName(int postidx, int postPassword);
+
+    // 글 삭제하기
+    int deletePost(int postidx, int postPassword);
 }

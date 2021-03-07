@@ -55,4 +55,26 @@
 		postidx=#{postidx}
 	</update>
 
+	<!--비밀번호 확인하기 -->
+	<select id="passChk" resultType="int">
+		select count (*)
+		from post
+		where
+		postidx=#{param1}
+		AND
+		postPassword=#{param2}
+	</select>
+
+
+	<!-- 파일이름  -->
+<select id="getFileName" resultType="String">
+    select postFileName from post where postidx=#{param1} AND postPassword=#{param2}
+</select>
+
+	<!-- 글 삭제하기 -->
+<delete id="deletePost">
+	delete from post
+	where  postidx=#{param1} AND postPassword=#{param2}
+</delete>
+
 </mapper>
