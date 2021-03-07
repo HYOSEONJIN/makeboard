@@ -15,4 +15,7 @@ public interface BoardInterfaceDao {
 
     //전체글리스트 불러오기
     List<Board> getAllList();
+
+    //postidx에 해당하는 글 정보
+    Board postByIdx(int postidx);
 }

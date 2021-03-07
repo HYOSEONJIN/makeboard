@@ -1,6 +1,11 @@
+window.onload = function(){
+  LIST.fn_getAuthLog();
+}
+
+
 var LIST = {
 	fn_init : function(){
-    LIST.fn_getAuthLog();
+    //LIST.fn_getAuthLog();
     //LIST.fn_reload();
 
 
@@ -28,20 +33,6 @@ var LIST = {
         { targets: 0, "width": "5%", className: 'dt-center'},
         { targets: 1, "width": "60%", className: 'dt-center'},
         { targets: 2, "width": "15%", className: 'dt-center'},
-        // { targets: 3,
-        //     "width": "20%",
-        //     className: 'dt-center',
-        //     "render" : function(data, type){
-        //       if(data < 1){
-        //         //data = '<div value="0">!온도체크실패!</div>';
-        //         data = '<div style="display:none">'+0+'</div>'+'<div>'+'온도체크실패'+'</div>';
-        //       }else if(data > 37.5){
-        //         data = '<div style="color: #ff0202", "font-weight: bold">'+data+'</div>'; 
-        //       }
-        //       return data;
-        //     }
-            
-        // },
         { targets: 3, "width": "20%", className: 'dt-center'}
       ],
       order: [[ 0, 'desc' ]],
@@ -70,7 +61,8 @@ $(document).ready(function(){
   $('#postList tbody').on('click', 'tr', function () {
     var data = table.row( this ).data();
     console.log(data.postidx);
-    alert( 'You clicked on '+data.postidx+'\'s row' );
+    // var link = 'localhost:8080/post?postidx='+data.postidx;
+    location.href= 'post?postidx='+data.postidx;
     
 } );
 });

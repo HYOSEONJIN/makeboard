@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/list")
 public class ListController {
-    
+	// 리스트출력    
 
 	
 	@Autowired
 	private ListService listService;
 
 		
-	/* 전체 게시글 리스트 형식으로 보내주기 */
+	/* 전체 게시글 */
 	@GetMapping
 	public String allList()  {
 		String json="";

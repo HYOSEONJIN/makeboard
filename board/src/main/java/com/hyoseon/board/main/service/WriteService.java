@@ -35,14 +35,30 @@ public class WriteService {
         // 글 내용이 없을 경우 >>>>>>>>>> 2
         if (board.getPostText().trim().isEmpty()) {
             result = 2;
+
+            return result;
         }
 
-        // 사진이 정상적인 파일인지 확인하기
+
+        String fileTypeChk = board.getPostFile().getOriginalFilename();
+        String[] arr = fileTypeChk.split("\\.");
+        String Type = arr[arr.length-1].toString().toUpperCase();
+        logger.info("파일확장자"+arr[arr.length-1].toString());
+
+
+
+        // 확장자가 사진이 아닐경우 >>>>>> 3
+        if(Type!= "JPG" || Type!="PNG" || Type!="JPEG" || Type!="GIF"){
+
+            result = 3;            
+            return result;
+        }
+        
+
+        // 사진이 정상적인 파일인지 확인하기 
         if (board.getPostFile() != null && !board.getPostFile().isEmpty()) {
 
-            String fileTypeChk = board.getPostFile().getOriginalFilename();
-            String[] arr = fileTypeChk.split("\\.");
-            logger.info("파일확장자"+arr[arr.length-1].toString());
+          
 
             String uploadPath = "/fileupload";
             saveDirPath = request

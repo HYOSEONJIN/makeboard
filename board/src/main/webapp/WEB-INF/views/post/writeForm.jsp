@@ -40,7 +40,7 @@
         <tr>
             <td></td>
             <td>
-                <button class="cancel">취소</button>
+                <button class="cancel" onclick="location.href='/'" >취소</button>
             </td>
             <td>
                 <input type="submit" value="등록"></td>

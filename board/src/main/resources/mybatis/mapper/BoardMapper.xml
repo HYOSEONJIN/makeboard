@@ -22,4 +22,13 @@
 		select * from post order by postDate desc;
 	</select>
 
+	
+	<!-- 글번호에 해당하는 글의 정보 -->
+	<select id="postByIdx"
+		resultType="com.hyoseon.board.main.vo.Board">
+
+		select * from post where postidx=#{postidx}
+
+	</select>
+
 </mapper>

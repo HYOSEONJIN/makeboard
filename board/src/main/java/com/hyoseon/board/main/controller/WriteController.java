@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/post/write")
 public class WriteController {
+    // 글 관련 컨트롤러
 
 	@Autowired
 	private WriteService service;
@@ -29,7 +30,7 @@ public class WriteController {
 
     // 글등록하기
     @RequestMapping(method = RequestMethod.POST)
-    public @ResponseBody String write(
+    public String write(
         @ModelAttribute("board") Board board,
         HttpServletRequest request,
         Model model
@@ -38,10 +39,12 @@ public class WriteController {
 		System.out.println(board);
 		int result = service.writePost(board, request);
 
+        System.out.println(result);
+
         model.addAttribute("result", result);
 		
         
-        return "index";
+        return "post/writeresult";
     }
 
 }
