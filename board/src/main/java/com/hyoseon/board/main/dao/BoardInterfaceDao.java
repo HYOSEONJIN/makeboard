@@ -18,4 +18,10 @@ public interface BoardInterfaceDao {
 
     //postidx에 해당하는 글 정보
     Board postByIdx(int postidx);
+
+    //글번호와 비밀번호 체크
+    int passchk(int postidx, String postPassword);
+
+    // 글 수정
+    int updatePost(Board board);
 }

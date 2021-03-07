@@ -9,6 +9,7 @@
     height: 300px;
 }
 
+.updateReset,
 .cancel{
     float: right;
 }

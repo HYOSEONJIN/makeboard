@@ -46,13 +46,12 @@ public class WriteService {
         logger.info("파일확장자"+Type);
 
 
-        // 확장자가 사진이 아닐경우 >>>>>> 3
-        if(Type.equals("JPG") && Type.equals("JPEG") && Type.equals("PNG") && Type.equals("GIF")){
+        // 확장자가 사진파일이 아닐경우 >>>>>> 3
+        if(!Type.equals("JPG") && !Type.equals("JPEG") && !Type.equals("PNG") && !Type.equals("GIF") && !Type.equals("")){
 
             result = 3;            
             return result;
         }
-        
 
         // 사진이 정상적인 파일인지 확인하기 
         if (board.getPostFile() != null && !board.getPostFile().isEmpty()) {

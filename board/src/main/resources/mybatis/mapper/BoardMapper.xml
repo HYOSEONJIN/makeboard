@@ -23,12 +23,36 @@
 	</select>
 
 	
-	<!-- 글번호에 해당하는 글의 정보 -->
+	<!-- 글번호에 해당하는 글의 정보 (비밀번호제외) -->
 	<select id="postByIdx"
 		resultType="com.hyoseon.board.main.vo.Board">
 
-		select * from post where postidx=#{postidx}
+		select 
+		postidx, postWriter, postTitle, postDate, postFileName, postText
+		from post where postidx=#{postidx}
 
 	</select>
+
+	<!-- 글번호와 비밀번호 체크하기 -->
+	<select id="passchk" resultType="int">
+		select count(*)
+		from post
+		where postidx=${param1}
+		AND 
+		postPassword=${param2}
+	</select>
+
+	<!-- 글 수정하기 -->
+	<update id="updatePost"
+	parameterType="com.hyoseon.board.main.vo.Board">
+		update post
+		set
+		postWriter=#{postWriter},
+		postTitle=#{postTitle},
+		postFileName=#{postFileName},
+		postText=#{postText}
+		where
+		postidx=#{postidx}
+	</update>
 
 </mapper>

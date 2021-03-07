@@ -22,6 +22,7 @@ public class Board {
     String postFileName;     //첨부파일이름
     MultipartFile postFile;  //첨부파일
     String postDate;          //글 등록시간
+    String exFileName;      // 이전첨부파일이름
 
     private List<Board> data;
 

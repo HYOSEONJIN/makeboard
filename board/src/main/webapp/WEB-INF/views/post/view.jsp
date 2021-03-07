@@ -65,9 +65,9 @@
         </tr>
 
     </table>
-    <button onclick="location.href='/post/update'">수정</button>
+    <button onclick="location.href='<c:url value="/post/update"/>?postidx=${board.postidx}'">수정</button>
     <button>삭제</button>
-
+  
 
     </body>
 
