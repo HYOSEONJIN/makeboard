@@ -1,5 +1,7 @@
 package com.hyoseon.board.main.vo;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
@@ -21,6 +23,7 @@ public class Board {
     MultipartFile postFile;  //첨부파일
     String postDate;          //글 등록시간
 
+    private List<Board> data;
 
     
 }

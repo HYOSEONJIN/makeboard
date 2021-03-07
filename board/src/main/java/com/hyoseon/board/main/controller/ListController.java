@@ -1,7 +1,7 @@
 package com.hyoseon.board.main.controller;
 import java.util.List;
 
-
+import com.google.gson.Gson;
 import com.hyoseon.board.main.service.ListService;
 import com.hyoseon.board.main.vo.Board;
 
@@ -22,8 +22,17 @@ public class ListController {
 		
 	/* 전체 게시글 리스트 형식으로 보내주기 */
 	@GetMapping
-	public List<Board> allList()  {
-		return listService.getList();	
+	public String allList()  {
+		String json="";
+		List<Board> data = listService.getList();
+
+		Board boardVO = new Board();
+		boardVO.setData(data);
+
+		json = new Gson().toJson(data);
+		json = "{\"data\":" + json + "}";
+
+		return json;
 	}
 
 }

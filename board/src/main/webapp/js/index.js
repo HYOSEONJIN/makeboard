@@ -1,7 +1,7 @@
 var LIST = {
 	fn_init : function(){
-
-    LIST.fn_reload();
+    LIST.fn_getAuthLog();
+    //LIST.fn_reload();
 
 
   },
@@ -17,16 +17,17 @@ var LIST = {
     baseUrl = window.location;
     table = $('#postList').DataTable({
       columns: [
-        {data: 'postidx' , title: '글번호', orderable : true, visible= false},
-        {data: 'postWriter' , title: '글쓴이',orderable : true},
+        {data: 'postidx' , title: '글번호', orderable : true},
+        
         {data: 'postTitle' , title: '제목', orderable : true},
+        {data: 'postWriter' , title: '글쓴이',orderable : true},
         {data: 'postDate' , title: '날짜', orderable : true}
       ],
       scrollX : false,
       columnDefs: [
-        { targets: 0, "width": "20%", className: 'dt-center'},
-        { targets: 1, "width": "20%", className: 'dt-center'},
-        { targets: 2, "width": "20%", className: 'dt-center'},
+        { targets: 0, "width": "5%", className: 'dt-center'},
+        { targets: 1, "width": "60%", className: 'dt-center'},
+        { targets: 2, "width": "15%", className: 'dt-center'},
         // { targets: 3,
         //     "width": "20%",
         //     className: 'dt-center',
@@ -47,7 +48,7 @@ var LIST = {
       select: {
         style: 'multi'
       },
-      sAjaxSource: "/getAuthLog",
+      sAjaxSource: "/list",
       sServerMethod: 'GET',
       //bProcessing: true,
       //bServerSide: true,
@@ -64,4 +65,12 @@ var LIST = {
 
 $(document).ready(function(){
   LIST.fn_init(); //
+
+
+  $('#postList tbody').on('click', 'tr', function () {
+    var data = table.row( this ).data();
+    console.log(data.postidx);
+    alert( 'You clicked on '+data.postidx+'\'s row' );
+    
+} );
 });
