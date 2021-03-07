@@ -8,12 +8,16 @@ import com.hyoseon.board.main.dao.BoardInterfaceDao;
 import com.hyoseon.board.main.vo.Board;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class WriteService {
     //글쓰기와 관련된 서비스
+
+    private final Logger logger = LoggerFactory.getLogger(WriteService.class);
 
     private BoardInterfaceDao dao;
 
@@ -27,6 +31,7 @@ public class WriteService {
         int result = 0;
         boolean photoChk = true;
 
+
         // 글 내용이 없을 경우 >>>>>>>>>> 2
         if (board.getPostText().trim().isEmpty()) {
             result = 2;
@@ -37,7 +42,7 @@ public class WriteService {
 
             String fileTypeChk = board.getPostFile().getOriginalFilename();
             String[] arr = fileTypeChk.split("\\.");
-            System.out.println(arr[arr.length-1]);
+            logger.info("파일확장자"+arr[arr.length-1].toString());
 
             String uploadPath = "/fileupload";
             saveDirPath = request
@@ -62,6 +67,7 @@ public class WriteService {
                     .transferTo(newFile);
             } catch (Exception e) {
                 e.printStackTrace();
+                logger.error(e.getMessage());
             }
 
             // 파일 이름 저장하기
