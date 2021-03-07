@@ -2,11 +2,13 @@ package com.hyoseon.board.main.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.fasterxml.jackson.databind.deser.std.StringArrayDeserializer;
 import com.hyoseon.board.main.service.WriteService;
 import com.hyoseon.board.main.vo.Board;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,15 +30,20 @@ public class WriteController {
 
     // 글등록하기
     @RequestMapping(method = RequestMethod.POST)
-    public @ResponseBody int write(
+    public @ResponseBody String write(
         @ModelAttribute("board") Board board,
-        HttpServletRequest request
+        HttpServletRequest request,
+        Model model
     ) {
 		
 		System.out.println(board);
 		int result = service.writePost(board, request);
+
+        model.addAttribute("result", result);
+		
+        
 ;
-        return result;
+        return "index";
     }
 
 }
