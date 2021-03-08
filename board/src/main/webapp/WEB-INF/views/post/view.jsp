@@ -66,41 +66,12 @@
 
     </table>
     <button onclick="location.href='<c:url value="/post/update"/>?postidx=${board.postidx}'">수정</button>
-    <button onclick="deletePost(${board.postidx})">삭제</button>
+    
+    <button onclick="location.href='<c:url value="/delete"/>?postidx=${board.postidx}'">삭제</button>
   
 
     </body>
 
     
-    <script src="<c:url value='lib/jquery/jquery-3.6.0.min.js'/>" crossorigin="anonymous"></script>
-
-    <script>
-
-    function deletePost(idx) {
-
-        if (confirm('정말삭제하시겠습니까?')) {
-            inputpw = prompt('비밀번호를 입력하세요');
-
-            $.ajax({
-                url: 'localhost:8080/post/delete',
-                type: 'POST',
-                data : {
-                    postidx : idx,
-                    postPassword : inputpw
-                
-                },
-                success: function (data) {
-
-                    console.log(data);
-
-                },
-                error: function (e) {
-                    console.log("포스트 삭제 에러 : ", e);
-                }
-            })
-
-        }
-    }
-</script>
 
 </html>

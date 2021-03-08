@@ -57,7 +57,7 @@
 
 	<!--비밀번호 확인하기 -->
 	<select id="passChk" resultType="int">
-		select count (*)
+		select count(*)
 		from post
 		where
 		postidx=#{param1}

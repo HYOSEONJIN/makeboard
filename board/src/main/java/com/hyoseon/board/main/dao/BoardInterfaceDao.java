@@ -26,11 +26,11 @@ public interface BoardInterfaceDao {
     int updatePost(Board board);
 
     // 비밀번호 확인하기
-    int passChk(int postidx, int postPassword);
+    int passChk(int postidx, String postPassword);
 
     // 파일이름 받아오기
-    String getFileName(int postidx, int postPassword);
+    String getFileName(int postidx, String postPassword);
 
     // 글 삭제하기
-    int deletePost(int postidx, int postPassword);
+    int deletePost(int postidx, String postPassword);
 }

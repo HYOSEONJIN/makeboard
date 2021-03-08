@@ -49,7 +49,7 @@
     <tr>
         <td></td>
         <td>
-            
+            <button class="cancel" onclick="location.href='<c:url value="/"/>'">취소</button>
         </td>
         <td>
             <input type="submit" value="수정"></td>

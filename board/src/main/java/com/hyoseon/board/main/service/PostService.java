@@ -165,7 +165,7 @@ public class PostService {
 
     // 게시물 삭제
 
-    public int deletePost(int postidx, int postPassword,  HttpServletRequest request){
+    public int deletePost(int postidx, String postPassword,  HttpServletRequest request){
         int result = 0;
 
         
@@ -180,7 +180,7 @@ public class PostService {
         }else if(Chk==1){
             // 파일이름 받아오기
             String fileName = dao.getFileName(postidx, postPassword);
-            // 글삭제하기
+            // 글삭제하기  >>>>>>>>>>>>>>>>>>> 삭제하면 1
             result = dao.deletePost(postidx, postPassword);
 
 

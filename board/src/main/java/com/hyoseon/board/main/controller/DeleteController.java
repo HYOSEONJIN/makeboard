@@ -5,29 +5,49 @@ import javax.servlet.http.HttpServletRequest;
 import com.hyoseon.board.main.service.PostService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
-@RestController
-@RequestMapping("/post/delete")
+@Controller
+@RequestMapping("/delete")
 public class DeleteController {
 
     @Autowired
     private PostService PostService;
 
-    @PostMapping
-    @CrossOrigin
-    public int deletePost(
+    @RequestMapping(method = RequestMethod.GET)
+    public String deleteForm(
         @RequestParam("postidx") int postidx,
-        @RequestParam("password") int postPassword,
-        HttpServletRequest request
+        Model model       
     ){
 
+        model.addAttribute("postidx", postidx);
 
-        return PostService.deletePost(postidx, postPassword, request);
+        return "post/delete";
+    }
+    
+    @RequestMapping(method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView deletePost(
+        @RequestParam("postidx") int postidx,
+        @RequestParam("postPassword") String postPassword,
+        HttpServletRequest request,
+        Model model
+    ){
+
+        ModelAndView mav = new ModelAndView();
+
+
+        int result = PostService.deletePost(postidx, postPassword, request);
+        mav.addObject("result", result);
+        mav.setViewName("post/deleteResult");
+
+        return mav;
     }
     
 
